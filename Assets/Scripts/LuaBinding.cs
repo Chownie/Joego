@@ -19,6 +19,10 @@ public class LuaBinding {
 		player.position -= player.forward * amount;
 	}
 	
+	public void RotateCS(int amount){
+		player.Rotate(Vector3.up * amount);
+	}
+	
 	public void MessageToLua(){
 		//Call the bound function with a string as its first param
 		boundMessageFunction.Call("Hello");

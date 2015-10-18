@@ -1,0 +1,15 @@
+function Forward(amount)
+	luabinding:MoveForwardCS(amount)
+end
+
+function Backward(amount)
+	luabinding:MoveBackwardCS(amount)
+end
+
+function Rotate(amount) -- Rotates by an angle
+	luabinding:RotateCS(amount)
+end
+
+luabinding:BindMessageFunction(Forward)
+luabinding:BindMessageFunction(Backward)
+luabinding:BindMessageFunction(Rotate)

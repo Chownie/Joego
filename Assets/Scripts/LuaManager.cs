@@ -6,8 +6,9 @@ public class LuaManager : MonoBehaviour {
 	//Reference to the Lua virtual machine
 	private Lua luaVirtualMachine;
 	//Filename of the Lua file to load in the Streaming Assets folder
-	public string LuaFileToLoad = "";
-	public void Start(){
+	public TextAsset CommonBindings;
+
+	public void Run(string input) {
 		//Init LuaBinding class that demonstrates communication
 		LuaBinding binding = new LuaBinding();
 		
@@ -16,7 +17,9 @@ public class LuaManager : MonoBehaviour {
 		//Tell Lua about the LuaBinding object to allow Lua to call C# functions
 		luaVirtualMachine["luabinding"] = binding;
 		//Run the code contained within the file
-		luaVirtualMachine.DoFile(Application.dataPath+"/"+LuaFileToLoad);		
+		
+		luaVirtualMachine.DoString(CommonBindings.text + input);
+		//luaVirtualMachine.DoFile(Application.dataPath+"/"+LuaFileToLoad);
 		//Trigger binding in c# to call the bound Lua function
 		binding.MessageToLua();
 	}
