@@ -10,6 +10,21 @@ function Rotate(amount) -- Rotates by an angle
 	luabinding:RotateCS(amount)
 end
 
+function PickUp()
+	luabinding:PickUpCS()
+end
+
+function Drop()
+	luabinding:DropCS()
+end
+
+function Print(output)
+	luabinding:PrintCS(output)
+end
+
 luabinding:BindMessageFunction(Forward)
 luabinding:BindMessageFunction(Backward)
 luabinding:BindMessageFunction(Rotate)
+luabinding:BindMessageFunction(PickUp)
+luabinding:BindMessageFunction(Drop)
+luabinding:BindMessageFunction(Print)
